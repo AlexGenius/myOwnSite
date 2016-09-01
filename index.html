@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prouid</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-size: cover;
+        }
+        
+        .prouid-navbar {
+            border-bottom: 2px solid rgba(22, 160, 133, 1);
+            box-shadow: 0px 2px 10px #888888;
+            padding-bottom: 0;
+        }
+        
+        .prouid-navbar ul {
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+            transition: 0.3s;
+            height: auto;
+        }
+        
+        .prouid-navbar ul li {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px 3% 0px 3%;
+            background: rgba(77, 182, 172, 1);
+            border-radius: 5px 5px 0px 0px;
+            transition: background 0.5s;
+            cursor: pointer;
+        }
+        
+        .prouid-navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font: 20px monospace;
+        }
+        
+        .prouid-navbar ul li:hover {
+            background: rgba(22, 160, 133, 1);
+        }
+        
+        .menu-btn {
+            text-decoration: none;
+            color: white;
+            font: 29px bold;
+            margin: 0 auto;
+            width: 29px;
+            text-align: center;
+            display: none;
+            transition: 0.3s;
+        }
+        
+        @media screen and (max-width: 1007px) {
+            .prouid-navbar {
+                border-bottom: 1px solid grey;
+                box-shadow: 0px 5px 5px #888888;
+                padding-bottom: 0;
+                background: rgba(158, 158, 158, 1);
+            }
+            .prouid-navbar ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                height: 0;
+            }
+            .prouid-navbar ul li {
+                display: block;
+                padding: 3px;
+                margin: 0px 0% 0px 0%;
+                background: none;
+                border-radius: 0px 0px 0px 0px;
+            }
+            .prouid-navbar ul li a {
+                text-decoration: none;
+                color: white;
+                font: 17px cursive;
+                display: block;
+                margin: 0 auto;
+                width: 100px;
+                text-align: center;
+            }
+            .prouid-navbar ul li:hover {
+                background: rgba(0, 0, 0, 0.9);
+            }
+            .menu-btn {
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body onresize="checkWidth();">
+
+    <div class="prouid-navbar">
+        <a href="#" class="menu-btn" id="menu-btn" onclick="ocFnc();">&#x2630;</a>
+        <ul id="prouid-nb-items">
+            <li><a href="#">Intro</a></li>
+            <li><a href="#">Knowledge</a></li>
+            <li><a href="#">Experiances</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div><!--navBar-->
+    <script>
+        var checkWidth = function () {
+            var docWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
+            if (docWidth > 1007) {
+                document.getElementById("prouid-nb-items").style.height = "auto";
+            } else if (docWidth < 1007) {
+                document.getElementById("prouid-nb-items").style.height = "0";
+                document.getElementById("menu-btn").style.transform = "none";
+            }
+        }
+        var ocFnc = function () {
+            var items = document.getElementById("prouid-nb-items");
+            var mBtn = document.getElementById("menu-btn");
+            if (items.style.height == "200px") {
+                items.style.height = "0";
+                mBtn.style.transform = "none";
+            } else {
+                items.style.height = "200px";
+                mBtn.style.transform = "rotate(90deg)";
+            }
+        }
+    </script>
+</body>
+
+</html>
